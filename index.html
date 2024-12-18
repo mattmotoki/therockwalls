@@ -3,115 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Fitness Journey</title>
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .section {
-            margin: 2rem 0;
-            padding: 2rem;
-            background: #f8fafc;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .calculator {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .result {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: #f0f9ff;
-            border-radius: 4px;
-            display: none;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .achievements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-
-        .achievement-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-    </style>
+    <title>The Rock Walls</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -123,7 +16,7 @@
         <section class="section">
             <h2>About Me</h2>
             <!-- <img src="profile.jpg" alt="Profile Picture" style="max-width: 100%; border-radius: 8px;"> -->
-            <p>Welcome to my the rock walls! I'm passionate about strength training and helping others achieve their fitness goals.</p>
+            <p>Sup you fakas! Welcome to my the rock walls! I'm passionate about strength training and helping others achieve their fitness goals.</p>
             
             <!-- Placeholder for video -->
             <div style="margin: 2rem 0; background: #eee; padding: 2rem; text-align: center; border-radius: 8px;">
@@ -185,7 +78,7 @@
                     <label for="laulau">Max Lau Laus Eaten (1 meal):</label>
                     <input type="number" id="laulau" min="0">
                 </div>                
-                <button onclick="calculateOneRM()">Calculate 1RM</button>
+                <button onclick="calculateOneRM()">Calculate Max Bench</button>
                 <div id="result" class="result"></div>
             </div>
         </section>
