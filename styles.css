@@ -119,6 +119,7 @@ header p {
     border: 1px solid var(--border-color);
 }
 
+
 .calculator {
     background: var(--bg-card);
     padding: 2rem;
@@ -126,6 +127,29 @@ header p {
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     border: 1px solid var(--border-color);
 }
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.calculator-footer {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
 
 .form-group {
     margin-bottom: 1.5rem;
@@ -138,14 +162,42 @@ label {
     color: var(--text-secondary);
 }
 
+
 input, select {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.875rem 1rem;  /* Increased padding */
     background-color: var(--bg-dark);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     color: var(--text-primary);
     transition: all 0.3s ease;
+    font-size: 1rem;  /* Consistent font size */
+    line-height: 1.5;
+    height: 3rem;  /* Fixed height for consistency */
+    box-sizing: border-box;
+    -webkit-appearance: none;  /* Remove default styling on iOS */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Style the select dropdown arrow */
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f3f4f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;  /* Make room for custom arrow */
+}
+
+/* Remove number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 input:focus, select:focus {
@@ -153,6 +205,7 @@ input:focus, select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
+
 
 button {
     background-color: var(--primary-color);
@@ -227,13 +280,13 @@ button:hover {
 
 .achievement-card {
     background: var(--bg-card);
-    padding: 1.25rem;  /* Slightly reduced padding */
+    padding: 1.25rem; 
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease;
-    width: 100%;  /* Full width */
-    box-sizing: border-box;  /* Include padding in width calculation */
+    width: 100%;  
+    box-sizing: border-box;
     margin: 0;  /* Remove margins */
 }
 
