@@ -100,11 +100,12 @@
     </div>
 
     <div id="resultModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="close-button" onclick="closeModal()"></div>
             <div id="modalResult"></div>
         </div>
     </div>
+    
     
     <script>
 
@@ -138,11 +139,41 @@
             }
 
             const advice = {
-                'Beginner': ["Eat more lau lau.", "Trade controller for dumbbells.", "Start with the bar, no shame."],
-                'Novice': ["Work construction.", "Watch Larry Wheels.", "Graduate from bands to weights."],
-                'Intermediate': ["Try pau hana lifts.", "Upgrade diet.", "Enter local competitions."],
-                'Advanced': ["Watch more videos.", "Enter meets.", "Train others."],
-                'Elite': ["Stay natural.", "Open a gym.", "Train the next generation."]
+                'Beginner': [
+                    "Eat more lau lau. Trust me brah.",
+                    "Time to trade that controller for some dumbbells, shoots.",
+                    "Start with the bar, no shame. Everyone starts somewhere.",
+                    "Go church, pray for gains.",
+                    "Time to stop playing Fortnite and hit the weights."
+                ],
+                'Novice': [
+                    "Go work construction, guaranteed gainz.",
+                    "Watch more Larry Wheels, but no steroids yet ah?",
+                    "Time to graduate from resistance bands to real weights.",
+                    "Stop skipping chest day, you looking like SpongeBob.",
+                    "Eat more spam musubi for protein."
+                ],
+                'Intermediate': [
+                    "Try pau hana lifts, extra motivation.",
+                    "Time to upgrade from L&L to protein shakes.",
+                    "Start doing pushups during Merrie Monarch breaks.",
+                    "You getting there, keep grinding like coffee.",
+                    "Time to enter some local competitions, show them what you got."
+                ],
+                'Advanced': [
+                    "Watch more The Rock Walls videos, like and subscribe.",
+                    "Time to enter powerlifting meets, represent the 808.",
+                    "You strong like bull, eat like one too.",
+                    "Consider training others, spread the knowledge.",
+                    "Almost ready for the Strongman Hawaii competition."
+                ],
+                'Elite': [
+                    "Consider using steroids (joke ah, stay natural cuz).",
+                    "You're basically The Rock's cousin now.",
+                    "Time to open your own gym in Waianae.",
+                    "Start your own YouTube channel, inspire others.",
+                    "You've reached boss level, time to train the next generation."
+                ]
             };
 
             const randomAdvice = advice[level][Math.floor(Math.random() * advice[level].length)];
@@ -165,6 +196,12 @@
             document.getElementById('resultModal').style.display = 'none';
         }
 
+        document.getElementById('resultModal').addEventListener('click', function(event) {
+            // Close if clicking the modal background (not the content)
+            if (event.target === this) {
+                closeModal();
+            }
+        });
 
     </script>
 </body>
