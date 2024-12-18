@@ -63,9 +63,7 @@ header h1 {
     z-index: 2;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 
-        0 2px 10px rgba(0,0,0,0.3),
-        0 10px 20px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3), 0 10px 20px rgba(0,0,0,0.2);
     background: linear-gradient(to right, #ffffff, #c7d2fe);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -81,29 +79,6 @@ header p {
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Animations */
-@keyframes patternMove {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 40px 40px;
-    }
-}
-
-@keyframes titleGlow {
-    0% {
-        text-shadow: 
-            0 2px 10px rgba(59, 130, 246, 0.3),
-            0 10px 20px rgba(59, 130, 246, 0.2);
-    }
-    100% {
-        text-shadow: 
-            0 2px 15px rgba(59, 130, 246, 0.5),
-            0 10px 30px rgba(59, 130, 246, 0.4);
-    }
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -112,13 +87,15 @@ header p {
 
 .section {
     margin: 2rem 0;
-    padding: 2rem;
+    padding: 1rem;
     background: var(--bg-card);
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     border: 1px solid var(--border-color);
+    overflow: hidden;
+    width: auto;
+    box-sizing: border-box;
 }
-
 
 .calculator {
     background: var(--bg-card);
@@ -134,22 +111,10 @@ header p {
     gap: 1.5rem;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
 .calculator-footer {
     grid-column: 1 / -1;
     margin-top: 1rem;
 }
-
-@media (max-width: 640px) {
-    .calculator-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
 
 .form-group {
     margin-bottom: 1.5rem;
@@ -162,34 +127,31 @@ label {
     color: var(--text-secondary);
 }
 
-
 input, select {
     width: 100%;
-    padding: 0.875rem 1rem;  /* Increased padding */
+    padding: 0.875rem 1rem;
     background-color: var(--bg-dark);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     color: var(--text-primary);
     transition: all 0.3s ease;
-    font-size: 1rem;  /* Consistent font size */
+    font-size: 1rem;
     line-height: 1.5;
-    height: 3rem;  /* Fixed height for consistency */
+    height: 3rem;
     box-sizing: border-box;
-    -webkit-appearance: none;  /* Remove default styling on iOS */
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-/* Style the select dropdown arrow */
 select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f3f4f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 1rem;
-    padding-right: 2.5rem;  /* Make room for custom arrow */
+    padding-right: 2.5rem;
 }
 
-/* Remove number input spinners */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -205,7 +167,6 @@ input:focus, select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
-
 
 button {
     background-color: var(--primary-color);
@@ -224,13 +185,41 @@ button:hover {
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-.result {
-    margin-top: 1.5rem;
-    padding: 1.5rem;
-    background: rgba(59, 130, 246, 0.1);
-    border-radius: 8px;
+.achievements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.achievement-card {
+    background: var(--bg-card);
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border: 1px solid var(--border-color);
-    display: none;
+    transition: transform 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.achievement-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.achievement-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .social-links {
@@ -252,57 +241,6 @@ button:hover {
 .social-links a:hover {
     background-color: rgba(59, 130, 246, 0.1);
     transform: translateY(-2px);
-}
-
-/* Previous CSS remains the same until achievements section */
-
-.achievements {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.section {
-    margin: 2rem 0;
-    padding: 1rem;  /* Reduced padding on mobile */
-    background: var(--bg-card);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    border: 1px solid var(--border-color);
-    overflow: hidden;  /* Prevent overflow */
-    width: auto;  /* Allow section to resize */
-    box-sizing: border-box;  /* Include padding in width calculation */
-}
-
-.achievement-card {
-    background: var(--bg-card);
-    padding: 1.25rem; 
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease;
-    width: 100%;  
-    box-sizing: border-box;
-    margin: 0;  /* Remove margins */
-}
-
-.achievement-card ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;  /* Remove margins */
-    width: 100%;  /* Full width */
-}
-
-.achievement-card li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border-color);
-    word-wrap: break-word;  /* Handle long text */
-    overflow-wrap: break-word;  /* Modern browsers */
-    hyphens: auto;  /* Allow hyphenation */
 }
 
 .modal {
@@ -331,7 +269,8 @@ button:hover {
     position: relative;
 }
 
-.modal-content h3, .modal-content h4 {
+.modal-content h3, 
+.modal-content h4 {
     margin-top: 0;
     font-size: 1.5rem;
     color: var(--primary-color);
@@ -340,10 +279,6 @@ button:hover {
 .modal-content p {
     margin: 0.5rem 0;
     line-height: 1.6;
-}
-
-.modal-content p:last-child {
-    margin-bottom: 0;
 }
 
 .close-button {
@@ -385,57 +320,36 @@ button:hover {
     transform: rotate(-45deg);
 }
 
-@media (min-width: 1024px) {
-    .modal-content {
-        width: calc(100% - 4rem);
-        max-width: 600px;
-    }
+@keyframes patternMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
 }
 
-/* Add responsive adjustments */
+@keyframes titleGlow {
+    0% { text-shadow: 0 2px 10px rgba(59, 130, 246, 0.3), 0 10px 20px rgba(59, 130, 246, 0.2); }
+    100% { text-shadow: 0 2px 15px rgba(59, 130, 246, 0.5), 0 10px 30px rgba(59, 130, 246, 0.4); }
+}
+
 @media (max-width: 768px) {
-    .container {
-        padding: 1rem;  /* Reduced padding on mobile */
-    }
-
-    .section {
-        margin: 1rem 0;
-        padding: 1rem;
-    }
-
-    .achievement-card {
-        padding: 1rem;
-    }
-
-    .achievements {
-        grid-template-columns: 1fr;  /* Single column on mobile */
-    }
-
-    header h1 {
-        font-size: 2.5rem;  /* Smaller title on mobile */
-    }
-
-    header p {
-        font-size: 1rem;
-    }
+    .container { padding: 1rem; }
+    .section { margin: 1rem 0; padding: 1rem; }
+    .achievement-card { padding: 1rem; }
+    .achievements { grid-template-columns: 1fr; }
+    header h1 { font-size: 2.5rem; }
+    header p { font-size: 1rem; }
 }
 
-/* Add very small screen adjustments */
+@media (max-width: 640px) {
+    .calculator-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
+
 @media (max-width: 480px) {
-    .container {
-        padding: 0.75rem;
-    }
+    .container { padding: 0.75rem; }
+    .section { padding: 0.75rem; margin: 0.75rem 0; }
+    .achievement-card { padding: 0.75rem; }
+    header h1 { font-size: 2rem; }
+}
 
-    .section {
-        padding: 0.75rem;
-        margin: 0.75rem 0;
-    }
-
-    .achievement-card {
-        padding: 0.75rem;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
+@media (min-width: 1024px) {
+    .modal-content { width: calc(100% - 4rem); max-width: 600px; }
 }
