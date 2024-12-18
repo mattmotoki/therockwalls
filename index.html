@@ -132,25 +132,47 @@
                 else level = 'Elite';
             }
 
-            // Generate advice based on level
-            let advice = '';
-            switch(level) {
-                case 'Beginner':
-                    advice = 'Eat more lau lua.';
-                    break;
-                case 'Novice':
-                    advice = 'Go work construction.';
-                    break;
-                case 'Intermediate':
-                    advice = 'Watch more Larry Wheels videos.';
-                    break;
-                case 'Advanced':
-                    advice = 'Watch more The Rock Walls videos. ';
-                    break;
-                case 'Elite':
-                    advice = 'Consider using steroids.';
-                    break;
-            }
+            // Advice arrays for each level
+            const advice = {
+                'Beginner': [
+                    "Eat more lau lau. Trust me brah.",
+                    "Time to trade that controller for some dumbbells, shoots.",
+                    "Start with the bar, no shame. Everyone starts somewhere.",
+                    "Go church, pray for gains.",
+                    "Time to stop playing Fortnite and hit the weights."
+                ],
+                'Novice': [
+                    "Go work construction, guaranteed gainz.",
+                    "Watch more Larry Wheels, but no steroids yet ah?",
+                    "Time to graduate from resistance bands to real weights.",
+                    "Stop skipping chest day, you looking like SpongeBob.",
+                    "Eat more spam musubi for protein."
+                ],
+                'Intermediate': [
+                    "Try pau hana lifts, extra motivation.",
+                    "Time to upgrade from L&L to protein shakes.",
+                    "Start doing pushups during Merrie Monarch breaks.",
+                    "You getting there, keep grinding like coffee.",
+                    "Time to enter some local competitions, show them what you got."
+                ],
+                'Advanced': [
+                    "Watch more The Rock Walls videos, like and subscribe.",
+                    "Time to enter powerlifting meets, represent the 808.",
+                    "You strong like bull, eat like one too.",
+                    "Consider training others, spread the knowledge.",
+                    "Almost ready for the Strongman Hawaii competition."
+                ],
+                'Elite': [
+                    "Consider using steroids (joke ah, stay natural cuz).",
+                    "You're basically The Rock's cousin now.",
+                    "Time to open your own gym in Waianae.",
+                    "Start your own YouTube channel, inspire others.",
+                    "You've reached boss level, time to train the next generation."
+                ]
+            };
+
+            // Get random advice for the level
+            const randomAdvice = advice[level][Math.floor(Math.random() * advice[level].length)];
 
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `
@@ -158,10 +180,11 @@
                 <p>Your estimated 1 rep max: ${Math.round(oneRM)} lbs</p>
                 <p>Strength Level: ${level}</p>
                 <h4>Training Advice:</h4>
-                <p>${advice}</p>
+                <p>${randomAdvice}</p>
             `;
             resultDiv.style.display = 'block';
-        }
+        }            
+
     </script>
 </body>
 </html>
