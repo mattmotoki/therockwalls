@@ -1,0 +1,17 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path 
+        d="M4 16L2 8L6 4L12 2L18 4L22 8L20 16L12 22L4 16Z" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linejoin="round"
+    />
+    <path 
+        d="M8 7L12 5L16 7M16 7L19 10M8 7L5 10M5 10L4 14M19 10L20 14M4 14L8 18M20 14L16 18M8 18L12 20L16 18" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+    />
+</svg>
