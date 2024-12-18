@@ -305,6 +305,93 @@ button:hover {
     hyphens: auto;  /* Allow hyphenation */
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    margin: 10% auto;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    color: var(--text-primary);
+    position: relative;
+}
+
+.modal-content h3, .modal-content h4 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.modal-content p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.modal-content p:last-child {
+    margin-bottom: 0;
+}
+
+.close-button {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    border: none;
+    background: none;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.close-button:hover {
+    opacity: 1;
+}
+
+.close-button::before,
+.close-button::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 1.25rem;
+    background-color: currentColor;
+    border-radius: 1px;
+}
+
+.close-button::before {
+    transform: rotate(45deg);
+}
+
+.close-button::after {
+    transform: rotate(-45deg);
+}
+
+@media (min-width: 1024px) {
+    .modal-content {
+        width: calc(100% - 4rem);
+        max-width: 600px;
+    }
+}
+
 /* Add responsive adjustments */
 @media (max-width: 768px) {
     .container {
